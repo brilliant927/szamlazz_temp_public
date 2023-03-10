@@ -1,3 +1,4 @@
+import * as dotenv from 'dotenv';
 import { NestFactory } from '@nestjs/core';
 import * as expressBasicAuth from 'express-basic-auth';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
@@ -5,6 +6,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
+  dotenv.config();
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
