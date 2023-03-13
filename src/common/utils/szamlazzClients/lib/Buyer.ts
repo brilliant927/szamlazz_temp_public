@@ -1,4 +1,4 @@
-import assert from 'assert';
+import * as assert from 'assert';
 import merge from 'merge';
 import { TaxSubject, TaxSubjects } from './Constants';
 import { wrapWithElement } from './XMLUtils';

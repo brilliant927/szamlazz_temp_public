@@ -1,4 +1,4 @@
-import assert from 'assert';
+import * as assert from 'assert';
 import merge from 'merge';
 import { Currency } from './Constants';
 import { wrapWithElement } from './XMLUtils';

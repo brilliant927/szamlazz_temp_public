@@ -1,7 +1,7 @@
-import assert from 'assert';
+import * as assert from 'assert';
 import merge from 'merge';
 import axios, { AxiosRequestConfig } from 'axios';
-import FormData from 'form-data';
+import * as FormData from 'form-data';
 import { wrapper } from 'axios-cookiejar-support';
 import { CookieJar } from 'tough-cookie';
 import { parseString, wrapWithElement, xml2obj } from './XMLUtils';
@@ -143,12 +143,13 @@ export class Client {
           ['szamlaLetoltes', this._options.requestInvoiceDownload],
           ['szamlaLetoltesPld', this._options.downloadedInvoiceCount],
           ['valaszVerzio', this._options.responseVersion],
+          ['szamlaKulsoAzon', this._options.invoiceId],
         ],
         1,
       ) +
       invoice._generateXML(1) +
       '</xmlszamla>';
-
+    console.log(xml);
     const httpResponse = await this._sendRequest(
       'action-xmlagentxmlfile',
       xml,
