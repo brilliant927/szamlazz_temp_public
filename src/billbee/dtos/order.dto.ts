@@ -33,7 +33,7 @@ class ProductDto {
   Type: string | null;
 }
 
-class OrderItemDto {
+export class OrderItemDto {
   BillbeeId: number;
   TransactionId: string | null;
   Product: ProductDto;
