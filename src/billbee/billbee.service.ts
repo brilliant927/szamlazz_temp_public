@@ -1,7 +1,7 @@
 import { HttpService } from '@nestjs/axios';
 import { ForbiddenException, Injectable } from '@nestjs/common';
-import { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { catchError, lastValueFrom, map, Observable } from 'rxjs';
+import { AxiosRequestConfig } from 'axios';
+import { catchError, lastValueFrom, map } from 'rxjs';
 
 import { OrderListDto } from './dtos/orderList.dto';
 import { OrderListGetDto } from './dtos/orderListGet.dto';
@@ -30,7 +30,7 @@ export class BillbeeService {
       })
       .pipe(map((res) => res.data))
       .pipe(
-        catchError((e) => {
+        catchError(() => {
           throw new ForbiddenException('API not available');
         }),
       );

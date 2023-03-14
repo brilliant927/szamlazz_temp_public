@@ -4,6 +4,7 @@ import { SzamlazzController } from './szamlazz.controller';
 
 @Module({
   controllers: [SzamlazzController],
-  providers: [SzamlazzService]
+  providers: [SzamlazzService],
+  exports: [SzamlazzService],
 })
 export class SzamlazzModule {}

@@ -82,7 +82,6 @@ export async function xml2obj(
 
     for (let i = 0; i < path.length; i++) {
       if (p.hasOwnProperty(path[i])) {
-        console.log('>>', path[i]);
         p = p[path[i]];
       } else {
         found = false;

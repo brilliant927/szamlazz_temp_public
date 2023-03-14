@@ -7,5 +7,6 @@ import { BillbeeController } from './billbee.controller';
   imports: [HttpModule],
   controllers: [BillbeeController],
   providers: [BillbeeService],
+  exports: [BillbeeService],
 })
 export class BillbeeModule {}

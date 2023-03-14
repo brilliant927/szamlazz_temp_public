@@ -20,7 +20,7 @@ export class OrderListGetDto {
   })
   @IsOptional()
   @IsDateString()
-  minOrderDate: Date;
+  minOrderDate?: Date;
 
   @ApiProperty({
     description: 'Specifies the newest order date to include in the response',
@@ -28,7 +28,7 @@ export class OrderListGetDto {
   })
   @IsOptional()
   @IsDateString()
-  maxOrderDate: Date;
+  maxOrderDate?: Date;
 
   @ApiProperty({
     description: 'Specifies the page to request',
@@ -36,7 +36,7 @@ export class OrderListGetDto {
   })
   @IsOptional()
   @IsNumber()
-  page: number;
+  page?: number;
 
   @ApiProperty({
     description: 'Specifies the pagesize. Defaults to 50, max value is 250',
@@ -44,7 +44,7 @@ export class OrderListGetDto {
   })
   @IsOptional()
   @IsNumber()
-  pageSize: number;
+  pageSize?: number;
 
   @ApiProperty({
     description:
@@ -54,7 +54,7 @@ export class OrderListGetDto {
     isArray: true,
   })
   @IsOptional()
-  shopId: number[];
+  shopId?: number[];
 
   @ApiProperty({
     description: 'Specifies a list of state ids to include in the response',
@@ -63,7 +63,7 @@ export class OrderListGetDto {
     isArray: true,
   })
   @IsOptional()
-  orderStateId: number[];
+  orderStateId?: number[];
 
   @ApiProperty({
     description:
@@ -73,7 +73,7 @@ export class OrderListGetDto {
     isArray: true,
   })
   @IsOptional()
-  tag: string[];
+  tag?: string[];
 
   @ApiProperty({
     description:
@@ -82,7 +82,7 @@ export class OrderListGetDto {
   })
   @IsOptional()
   @IsNumber()
-  minimumBillBeeOrderId: number;
+  minimumBillBeeOrderId?: number;
 
   @ApiProperty({
     description:
@@ -91,7 +91,7 @@ export class OrderListGetDto {
   })
   @IsOptional()
   @IsDateString()
-  modifiedAtMin: Date;
+  modifiedAtMin?: Date;
 
   @ApiProperty({
     description:
@@ -100,7 +100,7 @@ export class OrderListGetDto {
   })
   @IsOptional()
   @IsDateString()
-  modifiedAtMax: Date;
+  modifiedAtMax?: Date;
 
   @ApiProperty({
     description:
@@ -109,7 +109,7 @@ export class OrderListGetDto {
   })
   @IsOptional()
   @IsEnum(ArticleTitleSourceType)
-  articleTitleSource: ArticleTitleSourceType;
+  articleTitleSource?: ArticleTitleSourceType;
 
   @ApiProperty({
     description:
@@ -118,5 +118,5 @@ export class OrderListGetDto {
   })
   @IsOptional()
   @IsBoolean()
-  excludeTags: boolean;
+  excludeTags?: boolean;
 }

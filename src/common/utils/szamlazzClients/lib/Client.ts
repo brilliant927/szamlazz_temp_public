@@ -210,7 +210,7 @@ export class Client {
     }
 
     const httpResponse = await client.post(
-      'https://www.szamlazz.hu/szamla/',
+      process.env.SZAMLAZZ_API_BASE_URL,
       formData.getBuffer(),
       axiosOptions,
     );

@@ -101,7 +101,6 @@ export class SzamlazzService {
       const result = await szamlazzClient.issueInvoice(invoice);
       return result;
     } catch (e) {
-      console.log(e);
       throw new BadRequestException(e.message);
       return e;
     }
