@@ -69,7 +69,7 @@ export class SzamlazzService {
             vat:
               billbeeOrder.InvoiceAddress.Country == 'DE'
                 ? billbeeOrder.TaxRate1
-                : vatRate[billbeeOrder.InvoiceAddress.Country],
+                : vatRate[billbeeOrder.InvoiceAddress.Country]?.value || 0,
             grossUnitPrice: orderItem.TotalPrice / orderItem.Quantity,
             comment: '',
           }),
