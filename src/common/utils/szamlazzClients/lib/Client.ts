@@ -149,7 +149,6 @@ export class Client {
       ) +
       invoice._generateXML(1) +
       '</xmlszamla>';
-    console.log(xml);
     const httpResponse = await this._sendRequest(
       'action-xmlagentxmlfile',
       xml,

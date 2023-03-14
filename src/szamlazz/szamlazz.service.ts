@@ -1,4 +1,5 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
+import { vatRate } from 'src/common/constants/vatRate';
 import {
   Buyer,
   Client,
@@ -23,6 +24,7 @@ export class SzamlazzService {
         authToken: process.env.SZAMLAZZ_API_KEY,
         invoiceId: billbeeOrder.Id,
       });
+
       const seller = new Seller({
         bank: {
           name: 'MKB BANK NYRT',
@@ -57,21 +59,26 @@ export class SzamlazzService {
         comment: '',
       });
 
+      // If buyer is from Germany, use TaxRate1, but if buyer comes from ohter countries, use default value
       const soldItems = billbeeOrder.OrderItems.map(
         (orderItem: OrderItemDto) =>
           new Item({
             label: orderItem.Product.Title,
             quantity: orderItem.Quantity,
             unit: ' ',
-            vat: billbeeOrder.TaxRate1,
-            netUnitPrice:
-              (orderItem.TotalPrice - orderItem.TaxAmount) / orderItem.Quantity,
+            vat:
+              billbeeOrder.InvoiceAddress.Country == 'DE'
+                ? billbeeOrder.TaxRate1
+                : vatRate[billbeeOrder.InvoiceAddress.Country],
+            grossUnitPrice: orderItem.TotalPrice / orderItem.Quantity,
             comment: '',
           }),
       );
+
       const billbeePaymentMethod = billbeePaymentType.find(
         (type) => type.Id == billbeeOrder.PaymentMethod,
       );
+
       const invoice = new Invoice({
         paymentMethod: billbeePaymentMethod
           ? new PaymentMethod(
