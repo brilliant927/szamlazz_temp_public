@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { Cron, SchedulerRegistry } from '@nestjs/schedule';
+import { Cron } from '@nestjs/schedule';
 
 import { BillbeeService } from 'src/billbee/billbee.service';
 import { SzamlazzService } from 'src/szamlazz/szamlazz.service';
@@ -9,7 +9,6 @@ export class CronjobService {
   constructor(
     private billbeeService: BillbeeService,
     private szamlazzService: SzamlazzService,
-    private schedulerRegistry: SchedulerRegistry,
   ) {}
 
   private readonly logger = new Logger(CronjobService.name);
@@ -18,9 +17,6 @@ export class CronjobService {
     name: 'fetch_order_history',
   })
   async fetchOrderHistoryCron() {
-    const job = this.schedulerRegistry.getCronJob('fetch_order_history');
-    job.stop(); // pausing the cron job
-
     const yesterday = new Date();
 
     this.logger.log(`${yesterday.toISOString().split('T')[0]} cronjob started`);
