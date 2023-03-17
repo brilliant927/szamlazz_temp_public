@@ -1,10 +1,4 @@
 <p align="center">
-  Author: Steven 
-  WhatsApp: + 1 203 987 5341
-  I tried to add you on my whatsapp, but invalid error: 49162171487
-</p>
-
-<p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
